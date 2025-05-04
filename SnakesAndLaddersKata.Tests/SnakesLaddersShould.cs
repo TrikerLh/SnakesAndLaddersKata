@@ -29,5 +29,16 @@ namespace SnakesAndLaddersKata.Tests
 
             result.ShouldBe("¡Jugador 1 está en la casilla 5!");
         }
+        
+        [Test]
+        public void PlayerTwoMove3()
+        {
+            var snakesLadders = new SnakesLadders();
+            snakesLadders.Play(1, 2);
+            
+            var result = snakesLadders.Play(1, 2);
+
+            result.ShouldBe("¡Jugador 2 está en la casilla 3!");
+        }
     }
 }
