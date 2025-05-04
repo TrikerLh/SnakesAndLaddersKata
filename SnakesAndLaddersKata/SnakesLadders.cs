@@ -34,12 +34,12 @@ public class SnakesLadders
 
     private static int IsSnakeOrLadders(int box)
     {
-        if (box == 2)
+        return box switch
         {
-            return 38;
-        }
-
-        return box;
+            2 => 38,
+            16 => 6,
+            _ => box
+        };
     }
 
     private string BuildMessage(int box)

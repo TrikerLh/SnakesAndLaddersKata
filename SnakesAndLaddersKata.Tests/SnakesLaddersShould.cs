@@ -66,5 +66,15 @@ namespace SnakesAndLaddersKata.Tests
             
             result.ShouldBe("¡Jugador 1 está en la casilla 38!");
         }
+        
+        [Test]
+        public void PlayerOneDownToSnakeInBox16()
+        {
+            snakesLadders.Play(6, 6);
+            
+            var result = snakesLadders.Play(3, 1);
+            
+            result.ShouldBe("¡Jugador 1 está en la casilla 6!");
+        }
     }
 }
