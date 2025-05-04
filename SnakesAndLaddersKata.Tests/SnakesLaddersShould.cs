@@ -92,5 +92,22 @@ namespace SnakesAndLaddersKata.Tests
             result.ShouldBe("¡Jugador 2 gana!");
             
         }
+
+        [Test]
+        public void GameIsOver()
+        {
+            snakesLadders.Play(1, 2); //Player1 to box 3
+            snakesLadders.Play(1, 1); //Player2 to box 38
+            snakesLadders.Play(6, 6); //Player2 to box 50
+            snakesLadders.Play(5, 5); //Player2 to box 60
+            snakesLadders.Play(5, 5); //Player2 to box 70
+            snakesLadders.Play(4, 4); //Player2 to box 98
+            snakesLadders.Play(1, 1); //Player2 Wins
+            
+            var result = snakesLadders.Play(3,6);
+            
+            result.ShouldBe("¡Fin del juego!");
+            
+        }
     }
 }

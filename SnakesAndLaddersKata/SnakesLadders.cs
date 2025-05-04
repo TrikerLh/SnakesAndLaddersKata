@@ -5,15 +5,20 @@ public class SnakesLadders
     private readonly Player _player1; 
     private readonly Player _player2;
     private Player _activePlayer;
+    private bool _gameOver;
 
     public SnakesLadders()
     {
         _player1 = new Player("1");
         _player2 = new Player("2");
         _activePlayer = _player1;
+        _gameOver = false;
     }
     public string Play(int die1, int die2)
     {
+        if (_gameOver)
+            return "¡Fin del juego!";
+        
         var score = die1 + die2;
         var box = _activePlayer.Move(score);
         box = IsSnakeOrLadders(box);
@@ -23,6 +28,7 @@ public class SnakesLadders
         if (_activePlayer.IsWinner())
         {
             message = _activePlayer.GetMessageWin();
+            _gameOver = true;
         }
         else
         {
