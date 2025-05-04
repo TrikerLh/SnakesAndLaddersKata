@@ -109,5 +109,20 @@ namespace SnakesAndLaddersKata.Tests
             result.ShouldBe("¡Fin del juego!");
             
         }
+        
+        [Test]
+        public void PlayerOneBounceWhenHisScoreIsGreaterThan100()
+        {
+            snakesLadders.Play(1, 1); //Player1 to box 38
+            snakesLadders.Play(6, 6); //Player1 to box 50
+            snakesLadders.Play(5, 5); //Player1 to box 60
+            snakesLadders.Play(5, 5); //Player1 to box 70
+            snakesLadders.Play(4, 4); //Player1 to box 98
+            
+            var result = snakesLadders.Play(2,3);
+            
+            result.ShouldBe("¡Jugador 1 está en la casilla 97!");
+            
+        }
     }
 }

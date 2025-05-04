@@ -14,6 +14,12 @@ public class Player
     public int Move(int score)
     {
         _position += score;
+        if (_position > 100)
+        {
+            var rest = _position - 100;
+            _position = 100;
+            _position = _position - rest;
+        }
         return _position;
     }
 
