@@ -60,7 +60,6 @@ namespace SnakesAndLaddersKata.Tests
         }
 
         [Test]
-        [Ignore("Refactor preparatorio")]
         public void PlayerOneUptoLadderInBox2()
         {
             var result = snakesLadders.Play(1, 1);

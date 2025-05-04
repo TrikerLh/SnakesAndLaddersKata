@@ -9,16 +9,20 @@ public class SnakesLadders
     {
         string message;
         var score = die1 + die2;
+        var box = 0;
 
         if (_player1Turn)
         {
-            _player1Score += score;
+            box = _player1Score += score;
         }
         else
         {
-            _player2Score += score;
+           box = _player2Score += score;
         }
-        message = BuildMessage();
+
+        box = IsSnakeOrLadders(box);
+        
+        message = BuildMessage(box);
 
         if (die1 != die2)
         {
@@ -28,10 +32,19 @@ public class SnakesLadders
         return message;
     }
 
-    private string BuildMessage()
+    private static int IsSnakeOrLadders(int box)
+    {
+        if (box == 2)
+        {
+            return 38;
+        }
+
+        return box;
+    }
+
+    private string BuildMessage(int box)
     {
         var player = _player1Turn ? "1" : "2";
-        var score = _player1Turn ? _player1Score : _player2Score;
-        return $"¡Jugador {player} está en la casilla {score}!";
+        return $"¡Jugador {player} está en la casilla {box}!";
     }
 }
