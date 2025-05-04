@@ -26,4 +26,14 @@ public class Player
     {
         _position = box;
     }
+
+    public bool IsWinner()
+    {
+        return _position == 100;
+    }
+
+    public string GetMessageWin()
+    {
+        return $"¡Jugador {_name} gana!";
+    }
 }

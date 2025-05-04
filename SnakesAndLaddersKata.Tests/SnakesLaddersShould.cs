@@ -76,5 +76,21 @@ namespace SnakesAndLaddersKata.Tests
             
             result.ShouldBe("¡Jugador 1 está en la casilla 6!");
         }
+
+        [Test]
+        public void PlayerTwoWins()
+        {
+            snakesLadders.Play(1, 2); //Player1 to box 3
+            snakesLadders.Play(1, 1); //Player2 to box 38
+            snakesLadders.Play(6, 6); //Player2 to box 50
+            snakesLadders.Play(5, 5); //Player2 to box 60
+            snakesLadders.Play(5, 5); //Player2 to box 70
+            snakesLadders.Play(4, 4); //Player2 to box 98
+            
+            var result = snakesLadders.Play(1, 1);
+            
+            result.ShouldBe("¡Jugador 2 gana!");
+            
+        }
     }
 }

@@ -2,7 +2,6 @@
 
 public class SnakesLadders
 {
-    private bool _player1Turn = true;
     private readonly Player _player1; 
     private readonly Player _player2;
     private Player _activePlayer;
@@ -16,12 +15,19 @@ public class SnakesLadders
     public string Play(int die1, int die2)
     {
         var score = die1 + die2;
-        
         var box = _activePlayer.Move(score);
         box = IsSnakeOrLadders(box);
         _activePlayer.MoveTo(box);
 
-        var message = _activePlayer.GetMessage();
+        string message;
+        if (_activePlayer.IsWinner())
+        {
+            message = _activePlayer.GetMessageWin();
+        }
+        else
+        {
+            message = _activePlayer.GetMessage();
+        }
 
         if (die1 != die2)
         {
