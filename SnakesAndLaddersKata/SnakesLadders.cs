@@ -3,8 +3,8 @@
 public class SnakesLadders
 {
     private bool _player1 = true;
-    private int _player1Score = 0;
-    private int _player2Score = 0;
+    private int _player1Score;
+    private int _player2Score;
     public string Play(int die1, int die2)
     {
         var score = die1 + die2;
