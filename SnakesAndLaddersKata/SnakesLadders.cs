@@ -2,24 +2,30 @@
 
 public class SnakesLadders
 {
-    private bool _player1 = true;
+    private bool _player1Turn = true;
     private int _player1Score;
     private int _player2Score;
     public string Play(int die1, int die2)
     {
+        var result = "";
         var score = die1 + die2;
 
-        if (_player1)
+        if (_player1Turn)
         {
-            if (die1 != die2)
-            {
-                _player1 = false;
-            }
             _player1Score += score;
-            return $"¡Jugador 1 está en la casilla {_player1Score}!";
+            result = $"¡Jugador 1 está en la casilla {_player1Score}!";
         }
-        _player1 = true;
-        _player2Score += score;
-        return $"¡Jugador 2 está en la casilla {_player2Score}!";
+        else
+        {
+            _player2Score += score;
+            result = $"¡Jugador 2 está en la casilla {_player2Score}!";
+        }
+
+        if (die1 != die2)
+        {
+            _player1Turn = !_player1Turn;
+        }
+
+        return result;
     }
 }
