@@ -50,14 +50,13 @@ namespace SnakesAndLaddersKata.Tests
         }
 
         [Test]
-        [Ignore("paso demasiado grande")]
         public void PlayerOneMoveTwoTimesWhenIsDouble()
         {
-            snakesLadders.Play(3, 1); 
+            snakesLadders.Play(3, 3); 
             
             var result = snakesLadders.Play(1, 2);
             
-            result.ShouldBe("¡Jugador 1 está en la casilla 6!");
+            result.ShouldBe("¡Jugador 1 está en la casilla 9!");
             
         }
     }

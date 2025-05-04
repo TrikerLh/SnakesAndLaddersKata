@@ -11,7 +11,10 @@ public class SnakesLadders
 
         if (_player1)
         {
-            _player1 = false;
+            if (die1 != die2)
+            {
+                _player1 = false;
+            }
             _player1Score += score;
             return $"¡Jugador 1 está en la casilla {_player1Score}!";
         }
