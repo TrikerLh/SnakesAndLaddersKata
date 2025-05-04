@@ -57,7 +57,15 @@ namespace SnakesAndLaddersKata.Tests
             var result = snakesLadders.Play(1, 2);
             
             result.ShouldBe("¡Jugador 1 está en la casilla 9!");
+        }
+
+        [Test]
+        [Ignore("Refactor preparatorio")]
+        public void PlayerOneUptoLadderInBox2()
+        {
+            var result = snakesLadders.Play(1, 1);
             
+            result.ShouldBe("¡Jugador 1 está en la casilla 38!");
         }
     }
 }
