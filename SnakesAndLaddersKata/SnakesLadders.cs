@@ -3,6 +3,8 @@
 public class SnakesLadders
 {
     private bool _player1 = true;
+    private int _player1Score = 0;
+    private int _player2Score = 0;
     public string Play(int die1, int die2)
     {
         var box = die1 + die2;
@@ -10,8 +12,11 @@ public class SnakesLadders
         if (_player1)
         {
             _player1 = false;
-            return $"¡Jugador 1 está en la casilla {box}!";
+            _player1Score += box;
+            return $"¡Jugador 1 está en la casilla {_player1Score}!";
         }
-        return $"¡Jugador 2 está en la casilla {box}!";
+        _player1 = true;
+        _player2Score += box;
+        return $"¡Jugador 2 está en la casilla {_player2Score}!";
     }
 }
